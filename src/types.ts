@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-13 17:08:03
+ * @LastEditTime: 2022-01-14 00:37:46
  * @Version: 1.0
  * @FilePath: \k4kit\src\types.ts
  */
@@ -40,10 +40,16 @@ export interface IFoucsData {
   unFoucs: Array<any>
 }
 
-
-
 export interface IDragState {
   startX: number,
   startY: number,
-  startPos: {top: number, left:number}[]
+  startLeft: number,
+  startTop: number
+  startPos: {top: number, left:number}[],
+  lines?: any
+}
+
+export interface ILines {
+  x: Array<{showLeft: number, left: number}>,
+  y: Array<{showTop: number, top: number}>
 }

@@ -4,26 +4,37 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: foucs hook
- * @LastEditTime: 2022-01-13 22:23:02
+ * @LastEditTime: 2022-01-13 23:36:22
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockFoucs.ts
  * @Autor: YeWei Wang
  */
-import { computed } from 'vue'
-import { IFoucsData } from '../types'
+import {
+  computed,
+  ref
+} from 'vue'
+import {
+  IFoucsData
+} from '../types'
 
 export function useBlockFoucs(data: any, callback: (e: MouseEvent) => any) {
 
-  
-  const clearBlockFoucs = ():void => {
+  const selectIndex = ref<number>(-1)
+
+  const lastSelectedBlock = computed<any>(() => {
+    return data.value.blocks[selectIndex.value]
+  })
+
+  const clearBlockFoucs = (): void => {
     data.value!.blocks.forEach((block: any) => {
       block.foucs = false
     })
+    selectIndex.value = -1
   }
 
-  const foucsData = computed<IFoucsData>(() => {
-    const foucs: Array<any> = []
-    const unFoucs: Array<any> = []
+  const foucsData = computed < IFoucsData > (() => {
+    const foucs: Array < any > = []
+    const unFoucs: Array < any > = []
     data.value.blocks.forEach((block: any) => {
       (block.foucs ? foucs : unFoucs).push(block)
     })
@@ -33,26 +44,25 @@ export function useBlockFoucs(data: any, callback: (e: MouseEvent) => any) {
     }
   })
 
-  const blockMousedown = (e: MouseEvent, block: any):void => {
+  const blockMousedown = (e: MouseEvent, block: any, index: number): void => {
     e.preventDefault()
     e.stopPropagation()
-    if(e.ctrlKey) {
-      block.foucs = !block.foucs
+    if (e.ctrlKey) {
+      (foucsData.value.foucs.length <= 1) ? (block.foucs = true) : (block.foucs = !block.foucs)
     } else {
-      if(!block.foucs) {
+      if (!block.foucs) {
         clearBlockFoucs()
         block.foucs = true
-      }else {
-        block.foucs = false
       }
     }
-
+    selectIndex.value = index
     callback(e)
   }
 
   return {
     blockMousedown,
     foucsData,
-    clearBlockFoucs
+    clearBlockFoucs,
+    lastSelectedBlock
   }
 }

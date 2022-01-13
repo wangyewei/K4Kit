@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 编辑器主文件
- * @LastEditTime: 2022-01-13 22:22:28
+ * @LastEditTime: 2022-01-14 01:35:56
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\packages\Editor.tsx
  * @Autor: YeWei Wang
@@ -46,11 +46,11 @@ export default defineComponent({
     const { dragStart, dragEnd } = useBlockDrag(data, containerRef)
     
     /** Editor items drag */
-    const { blockMousedown, foucsData, clearBlockFoucs } = useBlockFoucs(data, (e: MouseEvent) => {
+    const { blockMousedown, foucsData, clearBlockFoucs, lastSelectedBlock } = useBlockFoucs(data, (e: MouseEvent) => {
       mousedown(e)
     })
 
-    const { mousedown } = useBlockMouse(foucsData)
+    const { mousedown, markLine } = useBlockMouse(foucsData, lastSelectedBlock, data)
    
     return () => (
       <div class="editor">
@@ -84,13 +84,16 @@ export default defineComponent({
                  ref={containerRef}
                  onMousedown={clearBlockFoucs}> 
               <div class="editor__convans-content" >
-                {data.value!.blocks.map((block: any) => (
+                {data.value!.blocks.map((block: any, idx: number) => (
                   <EditorBlock class={block.foucs ? 'editor-block__foucs' : ''}
                                block={block} 
-                               mouseDown={(e: MouseEvent) => blockMousedown(e, block)}
+                               mouseDown={(e: MouseEvent) => blockMousedown(e, block, idx)}
                   />
                 ))}
               </div>
+
+              {markLine.x !== -1 && <div class='line-x' style={{ left: markLine.x + 'px'}}></div>}
+              {markLine.y !== -1 && <div class='line-y' style={{ top: markLine.y + 'px'}}></div>}
             </div>
           </div>
 

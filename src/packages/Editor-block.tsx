@@ -5,7 +5,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 物料
- * @LastEditTime: 2022-01-13 01:53:57
+ * @LastEditTime: 2022-01-13 23:37:43
  * @Version: 1.0
  * @FilePath: \k4kit\src\packages\Editor-block.tsx
  */
@@ -32,6 +32,9 @@ export default defineComponent({
         props.block!.top = props.block!.top - offsetHeight / 2,
         props.block!.alignCenter = false
       }
+
+      props.block!.width = offsetWidth
+      props.block!.height = offsetHeight
     })
 
     // console.log(config)
