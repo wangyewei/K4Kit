@@ -46,7 +46,6 @@ $border-color-primary: #0fbcf9;
 
       li {
         padding: 0 10px;
-        // border: 1px solid red;
         cursor: pointer;
         transition: .1s;
         font-size: 12px;
@@ -61,52 +60,69 @@ $border-color-primary: #0fbcf9;
 
   .editor-section {
     display: grid;
-    grid-template-columns: 260px auto 360px;
+    grid-template-columns: auto 1fr 280px;
     height: 100%;
+    // overflow: hidden;
 
 
     .editor-left,
     .editor-right {
+      overflow-x: hidden;
       background: #fff;
       overflow-y: scroll;
       height: calc(100vh - $header-height);
+
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius:10px;
+        background:rgba(0,0,0,0.1);
+      }
     }
 
     .editor-left {
       padding: 0 10px;
       box-sizing: border-box;
+      max-width: 220px;
+      min-width: 80px;
+      position: relative;
 
+
+      .componentslists {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
       &__item {
-        width: 100%;
-        margin: 13px auto;
-        min-height: 117px;
+        width: 80px;
+        height: 80px;
+        margin: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        // padding: 20px;
         box-sizing: border-box;
         cursor: move;
         user-select: none;
         background: none;
         position: relative;
-        border: 2px dashed $border-color-primary;
         transition: .3s;
+        border: 1px solid #000;
 
         &:hover {
           border-color: $border-color-primary;
 
-          >span {
-            background: $border-color-primary;
-          }
+          // >span {
+          //   background: $border-color-primary;
+          // }
         }
 
         >span {
-          position: absolute;
-          top: 0;
-          left: 0;
-          background: #34e7e4;
-          display: inline-block;
-          min-width: 45px;
           text-align: center;
           box-sizing: border-box;
           padding: 3px 0;
@@ -124,6 +140,22 @@ $border-color-primary: #0fbcf9;
           // opacity: 0.2;
         }
       }
+
+      .menu-arrow {
+        border: 1px solid #2f3542;
+        padding: 2px;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: .3s;
+        margin-left: 6px;
+
+        &:hover {
+          border-color: $border-color-primary;
+          background: $border-color-primary;
+          color: $title-color;
+        }
+      }
     }
 
     .editor-container {
@@ -135,14 +167,9 @@ $border-color-primary: #0fbcf9;
       .editor__convans {
         position: relative;
         margin: 0 auto;
+        // overflow: scroll;
+        overflow: hidden;
         background: #fff;
-        // box-shadow: 0 0 1px #000;
-
-
-        // .line-x,
-        // .line-y {
-        //   position: absolute;
-        // }
 
         .line-x {
           position: absolute;
@@ -157,6 +184,7 @@ $border-color-primary: #0fbcf9;
           right: 0;
           border-top: 1px dashed $border-color-primary;
         }
+
         .editor__convans-content {
           position: relative;
 
@@ -184,4 +212,29 @@ $border-color-primary: #0fbcf9;
       }
     }
   }
+}
+
+.el-sub-menu__title {
+  margin-left: -4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  &:hover {
+    color: $border-color-primary;
+    background: none;
+  }
+  div {
+    i {
+      display: inline-block;
+      width: 100%;
+      font-size: 24px;
+    }
+
+    span {
+      display: inline-block;
+      margin-left: 20px;
+      text-align: center;
+    }
+  }
+
 }

@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-14 01:37:10
+ * @LastEditTime: 2022-01-22 16:32:58
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockMouse.ts
  * @Autor: YeWei Wang
@@ -46,7 +46,6 @@ export function useBlockMouse(foucsData: ComputedRef < IFoucsData > , lastSelect
       startPos: foucsData.value.foucs.map(({ top, left }) => ({ top, left })),
       lines: (() => {
         const { unFoucs } = foucsData.value
-        console.log(data)
         let lines:ILines = { x: [], y: [] };
         [...unFoucs, {
           top: 0,
@@ -118,8 +117,6 @@ export function useBlockMouse(foucsData: ComputedRef < IFoucsData > , lastSelect
     }
 
     [markLine.x, markLine.y] = [x, y]
-
-    console.log(markLine.x, markLine.y)
     //
  
     let durrenX: number = moveX - dragState.startX
@@ -128,7 +125,13 @@ export function useBlockMouse(foucsData: ComputedRef < IFoucsData > , lastSelect
     foucsData.value.foucs.forEach((block: any, idx: number) => {
       block.top = dragState.startPos[idx].top + durrenY
       block.left = dragState.startPos[idx].left + durrenX
+
+      // 防止元素溢出
+      block.top < 0 ? block.top = 0 : dragState.startPos[idx].top + durrenY
+      block.left < 0 ? block.left = 0 : block.left = dragState.startPos[idx].left + durrenX
     })
+
+
   }
 
   return {

@@ -5,7 +5,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 物料
- * @LastEditTime: 2022-01-13 23:37:43
+ * @LastEditTime: 2022-01-20 21:24:38
  * @Version: 1.0
  * @FilePath: \k4kit\src\packages\Editor-block.tsx
  */
@@ -37,8 +37,6 @@ export default defineComponent({
       props.block!.height = offsetHeight
     })
 
-    // console.log(config)
-    
     const blockStyle = computed<IBlocks>(() => ({
       top: `${props.block!.top}px`,
       left: `${props.block!.left}px`,
