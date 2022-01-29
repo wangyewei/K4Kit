@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-22 16:32:58
+ * @LastEditTime: 2022-01-29 15:47:56
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockMouse.ts
  * @Autor: YeWei Wang
@@ -129,6 +129,7 @@ export function useBlockMouse(foucsData: ComputedRef < IFoucsData > , lastSelect
       // 防止元素溢出
       block.top < 0 ? block.top = 0 : dragState.startPos[idx].top + durrenY
       block.left < 0 ? block.left = 0 : block.left = dragState.startPos[idx].left + durrenX
+
     })
 
 

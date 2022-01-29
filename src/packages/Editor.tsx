@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 编辑器主文件
- * @LastEditTime: 2022-01-22 15:46:21
+ * @LastEditTime: 2022-01-29 15:52:45
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\packages\Editor.tsx
  * @Autor: YeWei Wang
@@ -17,6 +17,7 @@ import { useBlockDrag } from "../hooks/useBlockDrag";
 import { useBlockFoucs } from "../hooks/useBlockFoucs";
 import { useBlockMouse } from "../hooks/useBlockMouse";
 import EditorLeft from "../components/EditorLeft";
+import EditorRight from "../components/EditorRight";
 
 export default defineComponent({
   props: {
@@ -94,11 +95,7 @@ export default defineComponent({
               )}
             </div>
           </div>
-
-          <div class="editor-right">
-            <h1>属性栏 </h1>
-            <p>请先点击一个组件</p>
-          </div>
+          <EditorRight />
         </div>
       </div>
     );
