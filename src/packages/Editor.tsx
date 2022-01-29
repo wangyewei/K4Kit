@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 编辑器主文件
- * @LastEditTime: 2022-01-29 15:52:45
+ * @LastEditTime: 2022-01-29 16:16:14
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\packages\Editor.tsx
  * @Autor: YeWei Wang
@@ -45,6 +45,8 @@ export default defineComponent({
     /**block list items drag */
     const { dragStart, dragEnd } = useBlockDrag(data, containerRef);
 
+    const blockRef = ref<HTMLDivElement>();
+
     /** Editor items drag */
     const { blockMousedown, foucsData, clearBlockFoucs, lastSelectedBlock } =
       useBlockFoucs(data, (e: MouseEvent) => {
@@ -54,7 +56,8 @@ export default defineComponent({
     const { mousedown, markLine } = useBlockMouse(
       foucsData,
       lastSelectedBlock,
-      data
+      data,
+      blockRef
     );
 
     return () => (
@@ -83,6 +86,7 @@ export default defineComponent({
                     class={block.foucs ? "editor-block__foucs" : ""}
                     block={block}
                     mouseDown={(e: MouseEvent) => blockMousedown(e, block, idx)}
+                    ref={blockRef}
                   />
                 ))}
               </div>

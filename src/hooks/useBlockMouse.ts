@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-29 15:47:56
+ * @LastEditTime: 2022-01-29 16:21:43
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockMouse.ts
  * @Autor: YeWei Wang
@@ -18,11 +18,16 @@ import {
 import {
   ComputedRef,
   reactive,
-  WritableComputedRef
+  WritableComputedRef,
+ Ref
 } from 'vue'
 
 
-export function useBlockMouse(foucsData: ComputedRef < IFoucsData > , lastSelectedBlock: ComputedRef<any>, data: WritableComputedRef<any>) {
+export function useBlockMouse(foucsData: ComputedRef < IFoucsData > , 
+  lastSelectedBlock: ComputedRef<any>, 
+  data: WritableComputedRef<any>,
+  blockRef: Ref
+  ) {
   let dragState: IDragState = {
     startX: 0,
     startY: 0,
@@ -125,11 +130,12 @@ export function useBlockMouse(foucsData: ComputedRef < IFoucsData > , lastSelect
     foucsData.value.foucs.forEach((block: any, idx: number) => {
       block.top = dragState.startPos[idx].top + durrenY
       block.left = dragState.startPos[idx].left + durrenX
-
-      // 防止元素溢出
+      const { offsetWidth:blocWdith, offsetHeight: blockHeight } = blockRef.value.$el
+      // 防止元素溢出容器
       block.top < 0 ? block.top = 0 : dragState.startPos[idx].top + durrenY
       block.left < 0 ? block.left = 0 : block.left = dragState.startPos[idx].left + durrenX
-
+      block.top > data.value.container.height - blockHeight ? block.top = data.value.container.height - blockHeight : dragState.startPos[idx].top + durrenY
+      block.left > data.value.container.width - blocWdith ? block.left =  data.value.container.width - blocWdith : dragState.startPos[idx].left + durrenX
     })
 
 
