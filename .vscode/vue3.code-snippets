@@ -16,6 +16,18 @@
 			"</style>"
 		],
 		"description": "vue3 template"
+	},
+	"jsx": {
+		"prefix": "jsx",
+		"body": [
+			"import { defineComponent } from \"vue\"",
+			"",
+			"export default defineComponent({",
+			"  setup(){",
+			"    return () => <div></div>",
+			"  }",
+			"})"
+		]
 	}
 
 }
