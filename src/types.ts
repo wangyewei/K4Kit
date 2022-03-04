@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-14 00:37:46
+ * @LastEditTime: 2022-03-04 15:36:27
  * @Version: 1.0
  * @FilePath: \k4kit\src\types.ts
  */
@@ -32,7 +32,8 @@ export interface IStyleComputed {
 
 export interface IToolBar {
   key: string,
-  fn: () => void;
+  hooksKey: string
+  // fn: () => void;
 }
 
 export interface IFoucsData {

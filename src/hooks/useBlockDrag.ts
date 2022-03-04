@@ -4,12 +4,16 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-22 16:25:42
+ * @LastEditTime: 2022-03-04 15:16:32
  * @Version: 1.0
  * @FilePath: \k4kit\src\hooks\useBlockDrag.ts
  */
 
 import { Ref } from "vue"
+import { createuuid } from "../tools"
+
+const PRE_NAME: string = 'k4kit'
+const MAX_IDLENGTH: number = 8
 
 
 export function useBlockDrag(data: any, containerRef: Ref) {
@@ -40,7 +44,8 @@ export function useBlockDrag(data: any, containerRef: Ref) {
         left: e.offsetX,
         zIndex: 1,
         key: currentComponent.key,
-        alignCenter: true
+        alignCenter: true,
+        id: createuuid(PRE_NAME, currentComponent.key, MAX_IDLENGTH)
       }
     ]}
 

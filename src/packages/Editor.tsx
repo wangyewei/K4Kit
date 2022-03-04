@@ -4,20 +4,20 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 编辑器主文件
- * @LastEditTime: 2022-01-29 16:16:14
+ * @LastEditTime: 2022-03-04 16:04:33
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\packages\Editor.tsx
  * @Autor: YeWei Wang
  */
-import { computed, defineComponent, inject, ref, PropType } from "vue";
-import EditorBlock from "./Editor-block";
-import { IStyleComputed, IConfig, IToolBar, IDragState } from "../types";
-import { toolBarRegisterConfig } from "../utils/Tool-Bar";
-import { useBlockDrag } from "../hooks/useBlockDrag";
-import { useBlockFoucs } from "../hooks/useBlockFoucs";
-import { useBlockMouse } from "../hooks/useBlockMouse";
-import EditorLeft from "../components/EditorLeft";
-import EditorRight from "../components/EditorRight";
+import { computed, defineComponent, inject, ref, PropType } from "vue"
+import EditorBlock from "./Editor-block"
+import { IStyleComputed, IConfig, IToolBar } from "../types"
+import { useBlockDrag } from "../hooks/useBlockDrag"
+import { useBlockFoucs } from "../hooks/useBlockFoucs"
+import { useBlockMouse } from "../hooks/useBlockMouse"
+import EditorTop from "../components/EditorTop"
+import EditorLeft from "../components/EditorLeft"
+import EditorRight from "../components/EditorRight"
 
 export default defineComponent({
   props: {
@@ -27,50 +27,42 @@ export default defineComponent({
   setup(props, ctx) {
     const data = computed<any>({
       get() {
-        return props.modelValue;
+        return props.modelValue
       },
       set(newValue) {
-        ctx.emit("update:modelValue", JSON.parse(JSON.stringify(newValue)));
+        ctx.emit("update:modelValue", JSON.parse(JSON.stringify(newValue)))
       },
-    });
+    })
 
     const styleComputed = computed<IStyleComputed>(() => ({
       width: data.value!.container.width + "px",
       height: data.value!.container.height + "px",
-    }));
+    }))
 
-    const config: any = inject("config");
+    const config: any = inject("config")
 
-    const containerRef = ref<any>(null);
+    const containerRef = ref<any>(null)
     /**block list items drag */
-    const { dragStart, dragEnd } = useBlockDrag(data, containerRef);
+    const { dragStart, dragEnd } = useBlockDrag(data, containerRef)
 
-    const blockRef = ref<HTMLDivElement>();
+    const blockRef = ref<HTMLDivElement>()
 
     /** Editor items drag */
     const { blockMousedown, foucsData, clearBlockFoucs, lastSelectedBlock } =
       useBlockFoucs(data, (e: MouseEvent) => {
-        mousedown(e);
-      });
+        mousedown(e)
+      })
 
     const { mousedown, markLine } = useBlockMouse(
       foucsData,
       lastSelectedBlock,
       data,
       blockRef
-    );
+    )
 
     return () => (
       <div class="editor">
-        <div class="editor-top">
-          <div class="editor__logo">K4 Kit 智慧低代码平台</div>
-          <ul class="editor__toolbar">
-            {toolBarRegisterConfig.toolBarLists.map((tool: IToolBar) => (
-              <li onClick={tool.fn}>{tool.key}</li>
-            ))}
-          </ul>
-        </div>
-
+        <EditorTop data={data} />
         <div class="editor-section">
           <EditorLeft config={config} dragStart={dragStart} dragEnd={dragEnd} />
           <div class="editor-container">
@@ -90,7 +82,6 @@ export default defineComponent({
                   />
                 ))}
               </div>
-
               {markLine.x !== -1 && (
                 <div class="line-x" style={{ left: markLine.x + "px" }}></div>
               )}
@@ -102,6 +93,6 @@ export default defineComponent({
           <EditorRight />
         </div>
       </div>
-    );
+    )
   },
-});
+})

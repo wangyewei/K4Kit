@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: foucs hook
- * @LastEditTime: 2022-01-13 23:36:22
+ * @LastEditTime: 2022-03-04 15:08:29
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockFoucs.ts
  * @Autor: YeWei Wang
@@ -36,6 +36,7 @@ export function useBlockFoucs(data: any, callback: (e: MouseEvent) => any) {
     const foucs: Array < any > = []
     const unFoucs: Array < any > = []
     data.value.blocks.forEach((block: any) => {
+      console.log(block);
       (block.foucs ? foucs : unFoucs).push(block)
     })
     return {
