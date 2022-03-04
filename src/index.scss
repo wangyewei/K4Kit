@@ -8,7 +8,6 @@ $header-color: #2f3542;
 $title-color: #f1f2f6;
 $header-height: 27px;
 
-
 $border-color-primary: #0fbcf9;
 
 .editor {
@@ -37,7 +36,6 @@ $border-color-primary: #0fbcf9;
       text-align: center;
     }
 
-
     .editor__toolbar {
       display: flex;
       list-style: none;
@@ -47,7 +45,7 @@ $border-color-primary: #0fbcf9;
       li {
         padding: 0 10px;
         cursor: pointer;
-        transition: .1s;
+        transition: 0.1s;
         font-size: 12px;
         color: #ddd;
 
@@ -63,7 +61,6 @@ $border-color-primary: #0fbcf9;
     grid-template-columns: auto 1fr 280px;
     height: 100%;
     // overflow: hidden;
-
 
     .editor-left,
     .editor-right {
@@ -81,8 +78,8 @@ $border-color-primary: #0fbcf9;
       }
 
       &::-webkit-scrollbar-thumb {
-        border-radius:10px;
-        background:rgba(0,0,0,0.1);
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.1);
       }
     }
 
@@ -92,7 +89,6 @@ $border-color-primary: #0fbcf9;
       max-width: 220px;
       min-width: 80px;
       position: relative;
-
 
       .componentslists {
         display: grid;
@@ -111,7 +107,7 @@ $border-color-primary: #0fbcf9;
         user-select: none;
         background: none;
         position: relative;
-        transition: .3s;
+        transition: 0.3s;
         border: 1px solid #000;
 
         &:hover {
@@ -122,15 +118,15 @@ $border-color-primary: #0fbcf9;
           // }
         }
 
-        >span {
+        > span {
           text-align: center;
           box-sizing: border-box;
           padding: 3px 0;
-          transition: .3s;
+          transition: 0.3s;
         }
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
@@ -147,7 +143,7 @@ $border-color-primary: #0fbcf9;
         border-radius: 8px;
         text-align: center;
         cursor: pointer;
-        transition: .3s;
+        transition: 0.3s;
         margin-left: 6px;
 
         &:hover {
@@ -162,7 +158,6 @@ $border-color-primary: #0fbcf9;
       background: #f1f2f6;
       height: calc(100vh - $header-height);
       overflow: scroll;
-
 
       .editor__convans {
         position: relative;
@@ -193,7 +188,7 @@ $border-color-primary: #0fbcf9;
             position: absolute;
 
             &::after {
-              content: '';
+              content: "";
               position: absolute;
               top: 0;
               left: 0;
@@ -236,5 +231,6 @@ $border-color-primary: #0fbcf9;
       text-align: center;
     }
   }
-
 }
+
+@import "./components/index.scss";

@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: toobar
- * @LastEditTime: 2022-03-04 16:13:42
+ * @LastEditTime: 2022-03-04 18:50:45
  * @Version: 1.0
  * @FilePath: \k4kit\src\utils\Tool-Bar.tsx
  */
@@ -24,10 +24,15 @@ function toolBarCreate() {
 
 export const toolBarRegisterConfig = toolBarCreate()
 
-// toolBarRegisterConfig.registerToolBar({
-//   key: "撤销",
-//   fn: () => console.log("撤销"),
-// })
+toolBarRegisterConfig.registerToolBar({
+  key: "编辑页面",
+  hooksKey: "changeContainer",
+})
+
+toolBarRegisterConfig.registerToolBar({
+  key: "撤销",
+  hooksKey: "cancelChange"
+})
 
 // toolBarRegisterConfig.registerToolBar({
 //   key: "重做",
@@ -44,10 +49,7 @@ export const toolBarRegisterConfig = toolBarCreate()
 //   fn: () => console.log("置顶"),
 // })
 
-toolBarRegisterConfig.registerToolBar({
-  key: "编辑",
-  hooksKey: "changeEditor",
-})
+
 
 // toolBarRegisterConfig.registerToolBar({
 //   key: "置底",
