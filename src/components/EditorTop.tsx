@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description:Editor-top
- * @LastEditTime: 2022-03-04 22:50:17
+ * @LastEditTime: 2022-03-04 23:01:53
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorTop.tsx
  */
@@ -57,7 +57,6 @@ export default defineComponent({
             <li onClick={fnMap[tool.hooksKey]}>{tool.key}</li>
           ))}
         </ul>
-
 
         <EditorSizeDialog
           dialogVisable={dialogVisable}
