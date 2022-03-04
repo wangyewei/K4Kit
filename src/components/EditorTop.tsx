@@ -4,20 +4,15 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description:Editor-top
- * @LastEditTime: 2022-03-04 22:17:42
+ * @LastEditTime: 2022-03-04 22:50:17
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorTop.tsx
  */
 
-import { defineComponent, PropType, ref, reactive, Fragment, Ref } from "vue"
+import { defineComponent, PropType } from "vue"
 import { toolBarRegisterConfig } from "../utils/Tool-Bar"
 import { useCommand } from "../hooks/useCommand"
-
-import {
-  ElDialog,
-  ElButton,
-  ElInput
-} from "../plugins/platform-component"
+import EditorSizeDialog from "./components/EditorSizeDialog"
 
 export type ToolBar = {
   key: string
@@ -63,42 +58,15 @@ export default defineComponent({
           ))}
         </ul>
 
-        <ElDialog
-          modelValue={dialogVisable.value}
-          title="设置页面的宽高"
-          width="30%">
 
-          {{
-            default: () => (
-              <>
-                <span>设置页面的宽高</span>
-                <ElInput
-                  class="editor__top-dialog-input"
-                  modelValue={containerWidth.value}
-                  placeholder="请设置宽度"
-                  onInput={e => containerValueInput(e, containerWidth)}
-                  clearable
-                />
-                <ElInput
-                  modelValue={containerHeight.value}
-                  placeholder="请设置高度"
-                  onInput={e => containerValueInput(e, containerHeight)}
-                  clearable />
-              </>
-            ),
-            footer: () => (
-              <>
-                <ElButton onClick={() => {
-                  containerImpl.confirm(
-                    containerWidth,
-                    containerHeight
-                  )
-                }}>确认</ElButton>
-                <ElButton onClick={() => dialogVisable.value = false}>取消</ElButton>
-              </>
-            ),
-          }}
-        </ElDialog>
+        <EditorSizeDialog
+          dialogVisable={dialogVisable}
+          containerWidth={containerWidth}
+          containerHeight={containerHeight}
+          containerValueInput={containerValueInput}
+          containerImpl={containerImpl}
+        />
+
       </div>
     )
   },
