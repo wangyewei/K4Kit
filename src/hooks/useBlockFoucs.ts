@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: foucs hook
- * @LastEditTime: 2022-03-04 15:08:29
+ * @LastEditTime: 2022-03-11 13:35:18
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockFoucs.ts
  * @Autor: YeWei Wang
@@ -19,6 +19,7 @@ import {
 
 export function useBlockFoucs(data: any, callback: (e: MouseEvent) => any) {
 
+  // callback(e)
   const selectIndex = ref<number>(-1)
 
   const lastSelectedBlock = computed<any>(() => {
@@ -32,11 +33,11 @@ export function useBlockFoucs(data: any, callback: (e: MouseEvent) => any) {
     selectIndex.value = -1
   }
 
-  const foucsData = computed < IFoucsData > (() => {
-    const foucs: Array < any > = []
-    const unFoucs: Array < any > = []
+  const foucsData = computed<IFoucsData>(() => {
+    const foucs: Array<any> = []
+    const unFoucs: Array<any> = []
     data.value.blocks.forEach((block: any) => {
-      console.log(block);
+      // console.log(block);
       (block.foucs ? foucs : unFoucs).push(block)
     })
     return {
