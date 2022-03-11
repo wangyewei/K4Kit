@@ -4,10 +4,9 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 快捷键
- * @LastEditTime: 2022-03-11 15:59:43
+ * @LastEditTime: 2022-03-11 17:00:55
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useCommand.ts
- * @Autor: YeWei Wang
  */
 import { Ref, ref } from "vue"
 import { ContainerValue, DeleteFoucs, BlockFoucesData } from "../components/EditorTop"

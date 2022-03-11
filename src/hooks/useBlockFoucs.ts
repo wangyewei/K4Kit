@@ -4,10 +4,9 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: foucs hook
- * @LastEditTime: 2022-03-11 13:35:18
+ * @LastEditTime: 2022-03-11 17:00:47
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockFoucs.ts
- * @Autor: YeWei Wang
  */
 import {
   computed,

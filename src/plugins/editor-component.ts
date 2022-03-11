@@ -4,10 +4,9 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-21 22:48:24
+ * @LastEditTime: 2022-03-11 17:01:05
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\plugins\editor-component.ts
- * @Autor: YeWei Wang
  */
 import {
   ElMenu as KMenu,

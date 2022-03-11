@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-01-04 16:15:04
+ * @LastEditTime: 2022-03-11 16:51:27
  * @Version: 1.0
  * @FilePath: \k4kit\vite.config.ts
  */
@@ -14,6 +14,7 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+
   esbuild: {
     jsxFactory: 'h',
     jsxFragment: 'Fragment',

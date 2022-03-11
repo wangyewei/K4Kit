@@ -4,10 +4,9 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 编辑器主文件
- * @LastEditTime: 2022-03-11 13:43:32
+ * @LastEditTime: 2022-03-11 17:00:59
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\packages\Editor.tsx
- * @Autor: YeWei Wang
  */
 import { computed, defineComponent, inject, ref, PropType } from "vue"
 import EditorBlock from "./Editor-block"
@@ -90,7 +89,7 @@ export default defineComponent({
               )}
             </div>
           </div>
-          <EditorRight />
+          <EditorRight foucsData={foucsData.value} />
         </div>
       </div>
     )

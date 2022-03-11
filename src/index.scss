@@ -83,6 +83,12 @@ $border-color-primary: #0fbcf9;
       }
     }
 
+    .editor-right {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
     .editor-left {
       padding: 0 10px;
       box-sizing: border-box;

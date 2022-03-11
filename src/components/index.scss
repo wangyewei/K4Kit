@@ -1,3 +1,34 @@
 .editor__top-dialog-input {
   margin-bottom: 20px;
 }
+
+.editor__right-no-block {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 300px auto;
+  .svg {
+    // display: flex;
+    width: 60%;
+    height: 400px;
+  }
+  .no-block-desc {
+    // font-weight: bold;
+    // font-size: 22px;
+    font-weight: bold;
+  }
+}
+.editor__right-tab {
+  height: 100%;
+  // width: 110px;
+  // overflow: scroll;
+  // width: 100%;
+  // margin: 0;
+  // padding: 0;
+  // &::-webkit-scrollbar {
+  //   display: none; /* Chrome Safari */
+  // }
+  .tab-pannel {
+    height: 100%;
+  }
+}

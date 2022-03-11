@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description:Editor-top
- * @LastEditTime: 2022-03-11 16:00:30
+ * @LastEditTime: 2022-03-11 16:04:16
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorTop.tsx
  */
@@ -74,7 +74,8 @@ export default defineComponent({
         deleteBlock(props.selectedBlock!!, props.data!.value)
       },
       blocksRemake: () => {
-        // 可以加以个确认框，下次再做吧.
+        // 可以加以个确认框，下次再做吧。
+        // 需要重构弹窗组件，减少代码量。
         blocksRemake(props.data!.value)
       }
     }
