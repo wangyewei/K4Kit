@@ -4,15 +4,17 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 快捷键
- * @LastEditTime: 2022-03-04 22:18:32
+ * @LastEditTime: 2022-03-11 14:47:42
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useCommand.ts
  * @Autor: YeWei Wang
  */
 import { Ref, ref } from "vue"
-import { ContainerValue } from "../components/EditorTop"
+import { ContainerValue, DeleteFoucs, BlockFoucesData } from "../components/EditorTop"
+// import { IBlocks, IFoucsData } from "../types"
 
-export function useCommand() {
+export function useCommand(
+) {
   class ContainerImpl {
     private _width: Ref<string> = ref('')
     private _height: Ref<string> = ref('')
@@ -46,7 +48,21 @@ export function useCommand() {
       this._dialogVisable.value = false
     }
   }
+
+  const deleteBlock = (
+    selectedBlock: DeleteFoucs,
+    data: ContainerValue['value']
+  ) => {
+    selectedBlock?.foucs.forEach((item: BlockFoucesData) => {
+      const toDeleteBlockIdx: number = data.blocks.findIndex((block: BlockFoucesData) => {
+        return block.id === item.id
+      })
+      data.blocks.splice(toDeleteBlockIdx, 1)
+    })
+  }
+
   return {
     ContainerImpl,
+    deleteBlock
   }
 }

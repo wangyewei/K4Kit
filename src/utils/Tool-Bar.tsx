@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: toobar
- * @LastEditTime: 2022-03-11 13:26:14
+ * @LastEditTime: 2022-03-11 14:13:24
  * @Version: 1.0
  * @FilePath: \k4kit\src\utils\Tool-Bar.tsx
  */
@@ -34,10 +34,10 @@ toolBarRegisterConfig.registerToolBar({
   hooksKey: "deleteBlock"
 })
 
-// toolBarRegisterConfig.registerToolBar({
-//   key: "重做",
-//   fn: () => console.log("重做"),
-// })
+toolBarRegisterConfig.registerToolBar({
+  key: "重做",
+  hooksKey: 'blocksRemake'
+})
 
 // toolBarRegisterConfig.registerToolBar({
 //   key: "删除",
