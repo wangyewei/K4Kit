@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description:Editor-top
- * @LastEditTime: 2022-03-11 14:49:44
+ * @LastEditTime: 2022-03-11 16:00:30
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorTop.tsx
  */
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   setup(props) {
     // useCommand hooks
-    const { ContainerImpl, deleteBlock } = useCommand()
+    const { ContainerImpl, deleteBlock, blocksRemake } = useCommand()
     /** 编辑页面相关功能模块 */
     const containerImpl = new ContainerImpl(props.data!.value.container)
     const { dialogVisable, containerWidth, containerHeight, containerValueInput } = containerImpl.create()
@@ -73,6 +73,10 @@ export default defineComponent({
       deleteBlock: () => {
         deleteBlock(props.selectedBlock!!, props.data!.value)
       },
+      blocksRemake: () => {
+        // 可以加以个确认框，下次再做吧.
+        blocksRemake(props.data!.value)
+      }
     }
 
     return () => (
