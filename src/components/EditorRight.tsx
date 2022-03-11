@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 右侧属性栏
- * @LastEditTime: 2022-03-11 17:00:13
+ * @LastEditTime: 2022-03-11 18:38:00
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorRight.tsx
  */
@@ -18,9 +18,6 @@ export default defineComponent({
 
     return () => (
       <div class="editor-right">
-        {/* <h1>{props.foucsData.foucs} </h1> */}
-        {/* <p>{props.foucsData.foucs.length === 0 ? '请先选择一个组件' : '选择了'}</p> */}
-
         {
           props.foucsData.foucs.length === 0
             ?
