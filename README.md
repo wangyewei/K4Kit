@@ -15,10 +15,9 @@
 
 <img src="https://user-images.githubusercontent.com/49926816/157820089-92634e8d-5b49-41fd-b2de-be701fa33dad.png" width="600px" />
 
-![image](https://user-images.githubusercontent.com/49926816/157820129-801985a6-5927-4beb-b665-ffcf4dd0febd.png)
+<img src="https://user-images.githubusercontent.com/49926816/157820129-801985a6-5927-4beb-b665-ffcf4dd0febd.png" width="600px" />
 
-![image](https://user-images.githubusercontent.com/49926816/157820227-1186aa5d-128f-4537-9914-70fbf6b977eb.png)
-
+<img src="https://user-images.githubusercontent.com/49926816/157820227-1186aa5d-128f-4537-9914-70fbf6b977eb.png" width="600px" />
 
 ## 特性
 
