@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 编辑器左侧
- * @LastEditTime: 2022-03-11 17:00:43
+ * @LastEditTime: 2022-03-12 16:50:41
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorLeft.tsx
  */
@@ -19,7 +19,7 @@ import {
   KMenuItem,
   Grid,
   DocumentCopy,
-} from "../plugins/editor-component";
+} from "../plugins/platform-component";
 
 export default defineComponent({
   props: ["config", "dragStart", "dragEnd"],

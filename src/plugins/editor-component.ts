@@ -4,33 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-03-11 17:01:05
+ * @LastEditTime: 2022-03-12 16:46:54
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\plugins\editor-component.ts
  */
-import {
-  ElMenu as KMenu,
-  ElSubMenu as KSubMenu,
-  ElIcon as KIcon,
-  ElMenuItemGroup as KMenuItemGroup,
-  ElMenuItem as KMenuItem
-} from 'element-plus'
-
-import {
-  Shop,
-  Grid,
-  DocumentCopy
-} from '@element-plus/icons-vue'
-
-export {
-  KMenu,
-  KSubMenu,
-  KIcon,
-  KMenuItemGroup,
-  KMenuItem,
-
-  // icon //
-  Shop,
-  Grid,
-  DocumentCopy
-}

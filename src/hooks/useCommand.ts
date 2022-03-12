@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 快捷键
- * @LastEditTime: 2022-03-11 17:00:55
+ * @LastEditTime: 2022-03-11 23:49:35
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useCommand.ts
  */
@@ -59,7 +59,6 @@ export function useCommand(
       data.blocks.splice(toDeleteBlockIdx, 1)
     })
   }
-
 
   const blocksRemake = (
     data: ContainerValue['value']

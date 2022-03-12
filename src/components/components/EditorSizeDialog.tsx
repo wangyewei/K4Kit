@@ -4,13 +4,13 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 修改工作区高宽的弹框
- * @LastEditTime: 2022-03-04 22:49:28
+ * @LastEditTime: 2022-03-12 16:50:15
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\components\EditorSizeDialog.tsx
  */
 
 import { defineComponent, PropType, Fragment, Ref } from "vue";
-import { ElDialog, ElInput, ElButton } from '../../plugins/platform-component'
+import { KDialog, KInput, KButton } from '../../plugins/platform-component'
 
 export default defineComponent({
   props: {
@@ -28,7 +28,7 @@ export default defineComponent({
   },
   setup(props) {
     return () => (
-      <ElDialog
+      <KDialog
         modelValue={props.dialogVisable!.value}
         title="设置页面的宽高"
         width="30%">
@@ -37,14 +37,14 @@ export default defineComponent({
           default: () => (
             <>
               <span>设置页面的宽高</span>
-              <ElInput
+              <KInput
                 class="editor__top-dialog-input"
                 modelValue={props.containerWidth!.value}
                 placeholder="请设置宽度"
                 onInput={e => props.containerValueInput(e, props.containerWidth)}
                 clearable
               />
-              <ElInput
+              <KInput
                 modelValue={props.containerHeight!.value}
                 placeholder="请设置高度"
                 onInput={e => props.containerValueInput(e, props.containerHeight)}
@@ -53,17 +53,17 @@ export default defineComponent({
           ),
           footer: () => (
             <>
-              <ElButton onClick={() => {
+              <KButton onClick={() => {
                 props.containerImpl.confirm(
                   props.containerWidth,
                   props.containerHeight
                 )
-              }}>确认</ElButton>
-              <ElButton onClick={() => props.dialogVisable!.value = false}>取消</ElButton>
+              }}>确认</KButton>
+              <KButton onClick={() => props.dialogVisable!.value = false}>取消</KButton>
             </>
           ),
         }}
-      </ElDialog>
+      </KDialog>
     )
   }
 })

@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-03-04 15:16:32
+ * @LastEditTime: 2022-03-12 16:28:26
  * @Version: 1.0
  * @FilePath: \k4kit\src\hooks\useBlockDrag.ts
  */
@@ -19,41 +19,44 @@ const MAX_IDLENGTH: number = 8
 export function useBlockDrag(data: any, containerRef: Ref) {
 
 
-  let currentComponent:any = null
+  let currentComponent: any = null
 
-  const dragEnter = (e: DragEvent):void => {
+  const dragEnter = (e: DragEvent): void => {
     e.dataTransfer!.effectAllowed = 'copyMove'
     e.dataTransfer!.dropEffect = 'move'
   }
 
-  const dragOver = (e: DragEvent):void => {
+  const dragOver = (e: DragEvent): void => {
     e.preventDefault()
   }
 
-  const dragLeave = (e: DragEvent):void => {
+  const dragLeave = (e: DragEvent): void => {
     e.dataTransfer!.dropEffect = 'none'
   }
 
-  const dragDown = (e: DragEvent):void => {
+  const dragDown = (e: DragEvent): void => {
 
-    let blocks:any = data.value.blocks
-    data.value = {...data.value, blocks: [
-      ...blocks,
-      {
-        top: e.offsetY,
-        left: e.offsetX,
-        zIndex: 1,
-        key: currentComponent.key,
-        alignCenter: true,
-        id: createuuid(PRE_NAME, currentComponent.key, MAX_IDLENGTH)
-      }
-    ]}
+    let blocks: any = data.value.blocks
+    data.value = {
+      ...data.value, blocks: [
+        ...blocks,
+        {
+          top: e.offsetY,
+          left: e.offsetX,
+          zIndex: 1,
+          key: currentComponent.key,
+          alignCenter: true,
+          id: createuuid(PRE_NAME, currentComponent.key, MAX_IDLENGTH),
+          label: currentComponent.label
+        }
+      ]
+    }
 
     currentComponent = null
   }
-  
 
-  const dragStart = (e: DragEvent, component: any):any => {
+
+  const dragStart = (e: DragEvent, component: any): any => {
     containerRef.value.addEventListener('dragenter', dragEnter)
     containerRef.value.addEventListener('dragover', dragOver)
     containerRef.value.addEventListener('dragleave', dragLeave)
