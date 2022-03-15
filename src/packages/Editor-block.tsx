@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 物料
- * @LastEditTime: 2022-01-29 16:05:41
+ * @LastEditTime: 2022-03-15 20:46:18
  * @Version: 1.0
  * @FilePath: \k4kit\src\packages\Editor-block.tsx
  */
@@ -17,6 +17,8 @@ import {
   ref,
   RendererNode,
   PropType,
+  effect,
+  watch
 } from "vue";
 import { IBlocks } from "../types";
 
@@ -26,33 +28,44 @@ export default defineComponent({
     mouseDown: Function as PropType<(e: MouseEvent) => any>,
   },
   setup(props) {
-    const config: any = inject("config");
-
-    const blockRef = ref<HTMLDivElement>();
-
+    const config: any = inject("config")
+    const blockRef = ref<HTMLDivElement>()
     onMounted(() => {
       const { offsetWidth, offsetHeight } = blockRef.value as HTMLDivElement;
 
       if (props.block!.alignCenter) {
         (props.block!.left = props.block!.left - offsetWidth / 2),
           (props.block!.top = props.block!.top - offsetHeight / 2),
-          (props.block!.alignCenter = true);
+          (props.block!.alignCenter = true)
       }
 
-      props.block!.width = offsetWidth;
-      props.block!.height = offsetHeight;
+      props.block!.width = offsetWidth === 0 ? 69 : offsetWidth
+      props.block!.height = offsetHeight
     });
 
     const blockStyle = computed<IBlocks>(() => ({
       top: `${props.block!.top}px`,
       left: `${props.block!.left}px`,
       zIndex: props.block!.zIndex,
+      width: `${props.block!.width}px`,
+      height: `${props.block!.height}px`,
       key: props.block!.key,
     }));
 
+    const bolckInnerStyele = computed<any>(() => ({
+      color: `${props.block!.color ? props.block!.color : '#000'}`,
+      width: `${props.block!.width}px`,
+      height: `${props.block!.height}px`
+    }))
+
     const component = config.componentMap[props.block!.key];
 
-    const RenderComponent: RendererNode = component.render();
+    let RenderComponent: RendererNode
+
+    effect(() => {
+      RenderComponent = component.render(props.block!.children, bolckInnerStyele.value);
+    })
+
     return () => (
       <div
         class="editor-block"

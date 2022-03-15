@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-03-12 16:28:26
+ * @LastEditTime: 2022-03-15 19:33:24
  * @Version: 1.0
  * @FilePath: \k4kit\src\hooks\useBlockDrag.ts
  */
@@ -47,7 +47,9 @@ export function useBlockDrag(data: any, containerRef: Ref) {
           key: currentComponent.key,
           alignCenter: true,
           id: createuuid(PRE_NAME, currentComponent.key, MAX_IDLENGTH),
-          label: currentComponent.label
+          label: currentComponent.label,
+          // content: currentComponent.render()
+          children: currentComponent.children?.value || null
         }
       ]
     }

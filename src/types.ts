@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-03-04 15:36:27
+ * @LastEditTime: 2022-03-15 18:49:44
  * @Version: 1.0
  * @FilePath: \k4kit\src\types.ts
  */
@@ -17,7 +17,9 @@ export interface IBlocks {
   top: number | string,
   left: number | string,
   zIndex: number,
-  key: string
+  key: string,
+  // width: string | number,
+  // children: unknown
 }
 export interface IConfig {
   container: IContainer,
@@ -46,11 +48,11 @@ export interface IDragState {
   startY: number,
   startLeft: number,
   startTop: number
-  startPos: {top: number, left:number}[],
+  startPos: { top: number, left: number }[],
   lines?: any
 }
 
 export interface ILines {
-  x: Array<{showLeft: number, left: number}>,
-  y: Array<{showTop: number, top: number}>
+  x: Array<{ showLeft: number, left: number }>,
+  y: Array<{ showTop: number, top: number }>
 }
