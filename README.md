@@ -14,8 +14,9 @@
 基于 vue3 和 tsx 对低代码、零代码话题的尝试性项目。
 
 <div style="display: flex;">
-  <img src="https://user-images.githubusercontent.com/49926816/157837246-14ecf2a8-aedd-4c4a-a9fb-a61723cad077.png" width="350px" />  
-  <img src="https://user-images.githubusercontent.com/49926816/157837063-95f457c7-aa42-4d08-82e6-1acbf4a62a98.png" width="350px" />
+
+  <img src="https://user-images.githubusercontent.com/49926816/157837246-14ecf2a8-aedd-4c4a-a9fb-a61723cad077.png" width="450px" />  
+  <img src="https://user-images.githubusercontent.com/49926816/158383227-f32a0545-295a-48d2-b0d2-01a7dbdacc4e.png" width="450px" />
 </div>
 
 <img src="https://user-images.githubusercontent.com/49926816/157820089-92634e8d-5b49-41fd-b2de-be701fa33dad.png" width="600px" />
