@@ -4,15 +4,15 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description:Editor-top
- * @LastEditTime: 2022-03-11 16:04:16
+ * @LastEditTime: 2022-03-16 18:16:11
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorTop.tsx
  */
 
 import { defineComponent, PropType } from "vue"
-import { toolBarRegisterConfig } from "../utils/Tool-Bar"
-import { useCommand } from "../hooks/useCommand"
-import { IFoucsData } from "../types"
+import { toolBarRegisterConfig } from "@/utils/Tool-Bar"
+import { useCommand } from "@/hooks/useCommand"
+import type { FoucsData } from "@/types"
 import EditorSizeDialog from "./components/EditorSizeDialog"
 
 export type ToolBar = {
@@ -56,11 +56,11 @@ export type DeleteFoucs = {
 export default defineComponent({
   props: {
     data: Object as PropType<ContainerValue>,
-    selectedBlock: Object as PropType<IFoucsData>
+    selectedBlock: Object as PropType<FoucsData>
   },
   setup(props) {
     // useCommand hooks
-    const { ContainerImpl, deleteBlock, blocksRemake } = useCommand()
+    const { ContainerImpl, deleteBlock, blocksRemake, saveInLocal } = useCommand()
     /** 编辑页面相关功能模块 */
     const containerImpl = new ContainerImpl(props.data!.value.container)
     const { dialogVisable, containerWidth, containerHeight, containerValueInput } = containerImpl.create()

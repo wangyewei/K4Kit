@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 物料
- * @LastEditTime: 2022-03-15 20:46:18
+ * @LastEditTime: 2022-03-16 18:04:00
  * @Version: 1.0
  * @FilePath: \k4kit\src\packages\Editor-block.tsx
  */
@@ -18,9 +18,14 @@ import {
   RendererNode,
   PropType,
   effect,
-  watch
-} from "vue";
-import { IBlocks } from "../types";
+} from "vue"
+import type { BlocksBased } from "../types"
+
+export type StyleBased = {
+  color: string,
+  width: string,
+  height: string
+}
 
 export default defineComponent({
   props: {
@@ -43,16 +48,16 @@ export default defineComponent({
       props.block!.height = offsetHeight
     });
 
-    const blockStyle = computed<IBlocks>(() => ({
+    const blockStyle = computed<BlocksBased>(() => ({
       top: `${props.block!.top}px`,
       left: `${props.block!.left}px`,
       zIndex: props.block!.zIndex,
       width: `${props.block!.width}px`,
       height: `${props.block!.height}px`,
-      key: props.block!.key,
-    }));
+      key: props.block!.key
+    }))
 
-    const bolckInnerStyele = computed<any>(() => ({
+    const bolckInnerStyele = computed<StyleBased>(() => ({
       color: `${props.block!.color ? props.block!.color : '#000'}`,
       width: `${props.block!.width}px`,
       height: `${props.block!.height}px`

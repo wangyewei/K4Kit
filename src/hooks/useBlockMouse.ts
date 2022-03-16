@@ -4,15 +4,15 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-03-11 17:00:51
+ * @LastEditTime: 2022-03-16 18:24:01
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useBlockMouse.ts
  */
 
-import {
-  IDragState,
-  IFoucsData,
-  ILines
+import type {
+  DragState,
+  FoucsData,
+  Lines
 } from '../types'
 import {
   ComputedRef,
@@ -22,12 +22,12 @@ import {
 } from 'vue'
 
 
-export function useBlockMouse(foucsData: ComputedRef<IFoucsData>,
+export function useBlockMouse(foucsData: ComputedRef<FoucsData>,
   lastSelectedBlock: ComputedRef<any>,
   data: WritableComputedRef<any>,
   blockRef: Ref
 ) {
-  let dragState: IDragState = {
+  let dragState: DragState = {
     startX: 0,
     startY: 0,
     startLeft: 0,
@@ -50,7 +50,7 @@ export function useBlockMouse(foucsData: ComputedRef<IFoucsData>,
       startPos: foucsData.value.foucs.map(({ top, left }) => ({ top, left })),
       lines: (() => {
         const { unFoucs } = foucsData.value
-        let lines: ILines = { x: [], y: [] };
+        let lines: Lines = { x: [], y: [] };
         [...unFoucs, {
           top: 0,
           left: 0,
@@ -136,7 +136,6 @@ export function useBlockMouse(foucsData: ComputedRef<IFoucsData>,
       block.top > data.value.container.height - blockHeight ? block.top = data.value.container.height - blockHeight : dragState.startPos[idx].top + durrenY
       block.left > data.value.container.width - blocWdith ? block.left = data.value.container.width - blocWdith : dragState.startPos[idx].left + durrenX
     })
-
 
   }
 

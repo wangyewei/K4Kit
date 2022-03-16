@@ -4,7 +4,7 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description:
- * @LastEditTime: 2022-03-15 20:48:40
+ * @LastEditTime: 2022-03-15 21:06:08
  * @Version: 1.0
  * @FilePath: \k4kit\src\utils\Editor-config.tsx
  */
@@ -90,7 +90,6 @@ registerConfig.resister({
     if (!style.height || style.height === '0px') {
       style.height = '69px'
     }
-    // !style.hegiht && (style.height = '69px');
 
     element = undefined
     return (

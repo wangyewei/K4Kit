@@ -4,13 +4,13 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 快捷键
- * @LastEditTime: 2022-03-11 23:49:35
+ * @LastEditTime: 2022-03-16 18:12:06
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\hooks\useCommand.ts
  */
 import { Ref, ref } from "vue"
-import { ContainerValue, DeleteFoucs, BlockFoucesData } from "../components/EditorTop"
-// import { IBlocks, IFoucsData } from "../types"
+import { ContainerValue, DeleteFoucs, BlockFoucesData } from "@/components/EditorTop"
+import type { Config } from '@/types'
 
 export function useCommand(
 ) {
@@ -66,9 +66,16 @@ export function useCommand(
     data.blocks = []
   }
 
+  const saveInLocal = (
+    config: Config
+  ) => {
+    console.log(config)
+  }
+
   return {
     ContainerImpl,
     deleteBlock,
-    blocksRemake
+    blocksRemake,
+    saveInLocal
   }
 }

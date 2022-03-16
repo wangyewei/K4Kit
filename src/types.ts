@@ -4,46 +4,50 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 
- * @LastEditTime: 2022-03-15 18:49:44
+ * @LastEditTime: 2022-03-16 18:24:15
  * @Version: 1.0
  * @FilePath: \k4kit\src\types.ts
  */
 
-interface IContainer {
-  width: number,
-  height: number
-}
-export interface IBlocks {
+// interface IContainer {
+//   width: number,
+//   height: number
+// }
+// export interface IBlocks {
+//   top: number | string,
+//   left: number | string,
+//   zIndex: number,
+//   key: string,
+//   // width: string | number,
+//   // children: unknown
+// }
+
+export type BlocksBased = {
   top: number | string,
   left: number | string,
-  zIndex: number,
-  key: string,
-  // width: string | number,
-  // children: unknown
-}
-export interface IConfig {
-  container: IContainer,
-  blocks: Array<IBlocks>
+  width: number | string,
+  zIndex: number
 }
 
-export interface IStyleComputed {
-  width: string,
-  height: string
+export type Config = {
+  blocks: BlocksBased[],
+  container: {
+    width: number,
+    height: number
+  }
 }
-
 
 export interface IToolBar {
   key: string,
   hooksKey: string
-  // fn: () => void;
 }
 
-export interface IFoucsData {
+export interface FoucsData {
   foucs: Array<any>,
   unFoucs: Array<any>
 }
 
-export interface IDragState {
+export interface DragState {
   startX: number,
   startY: number,
   startLeft: number,
@@ -52,7 +56,7 @@ export interface IDragState {
   lines?: any
 }
 
-export interface ILines {
+export interface Lines {
   x: Array<{ showLeft: number, left: number }>,
   y: Array<{ showTop: number, top: number }>
 }

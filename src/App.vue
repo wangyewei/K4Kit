@@ -4,27 +4,33 @@
  * @WeChat: wj826036
  * @Motto: 求知若渴，虚心若愚
  * @Description: 入口
- * @LastEditTime: 2022-01-12 18:46:34
+ * @LastEditTime: 2022-03-16 18:05:02
  * @Version: 1.0
  * @FilePath: \k4kit\src\App.vue
 -->
 <script setup lang="ts">
-  import Editor from './packages/Editor'
-  import config from './config.json'
-  import {
-    provide,
-    ref
-  } from 'vue';
-  import {
-    IConfig
-  } from './types';
+import Editor from './packages/Editor'
+import type { Config } from './types'
+import {
+  provide,
+  ref
+} from 'vue';
 
-  import {
-    registerConfig
-  } from './utils/Editor-config'
+import {
+  registerConfig
+} from './utils/Editor-config'
 
-  provide('config', registerConfig)
-  const state = ref < IConfig > (config)
+const config: Config = window.localStorage.getItem('config') ? (JSON.parse(window.localStorage.getItem('config')!!)) as Config : {
+  blocks: [],
+  container: {
+    width: 550,
+    height: 650
+  }
+}
+
+provide('config', registerConfig)
+const state = ref<Config>(config)
+
 </script>
 
 <template>
@@ -34,5 +40,4 @@
 </template>
 
 <style>
-
 </style>

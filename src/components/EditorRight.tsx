@@ -4,7 +4,7 @@
  * @WeChat: Studio06k4
  * @Motto: 求知若渴，虚心若愚
  * @Description: 右侧属性栏
- * @LastEditTime: 2022-03-15 19:13:04
+ * @LastEditTime: 2022-03-16 16:50:41
  * @Version: K4Kit | 智慧低代码平台
  * @FilePath: \k4kit\src\components\EditorRight.tsx
  */
@@ -29,7 +29,7 @@ export type BlockFoucs = {
 
 export type Block = {
   foucs: BlockFoucs[],
-  unfoucs: any
+  // unfoucs: any
 }
 
 export default defineComponent({
