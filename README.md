@@ -55,4 +55,6 @@ wangyewei1@foxmail.com
 
 ### 写在最后
 
+该项目为参赛项目，目前已暂停更新代码。
+
 欢迎交流，star，issue。
