@@ -43,7 +43,7 @@
 
 `npm install && npm run dev`
 
-在线预览：暂未部署，敬请关注
+在线预览：https://k4kit.06k4.com
 
 ### 关于作者
 
